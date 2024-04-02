@@ -40,7 +40,7 @@ const Visita = conexao.define('visita', {
 });
 
 Visita.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Visita;

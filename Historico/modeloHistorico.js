@@ -50,7 +50,7 @@ const Historico = conexao.define('historico', {
 });
 
 Historico.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Historico;

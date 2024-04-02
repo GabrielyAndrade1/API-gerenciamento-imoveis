@@ -21,12 +21,16 @@ router.post('/corretor', (requisicao, resposta) => {
     const cpf = requisicao.body.cpf;
     const cnpj = requisicao.body.cnpj;
     const dataNascimento = requisicao.body.dataNascimento;
+
+    const [dia, mes, ano] = dataNascimento.split('/');
+    const formataAniversario = new Date(ano, parseInt(mes) - 1, dia);
+
     const codigoEndereco = requisicao.body.enderecoId;
     Corretor.create({
         nome: nome,
         cpf: cpf,
         cnpj: cnpj,
-        dataNascimento : dataNascimento,
+        dataNascimento : formataAniversario,
         enderecoId: codigoEndereco
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
@@ -42,12 +46,16 @@ router.put('/corretor/:corretorId', (requisicao, resposta) => {
     const cpf = requisicao.body.cpf;
     const cnpj = requisicao.body.cnpj;
     const dataNascimento = requisicao.body.dataNascimento;
+
+    const [dia, mes, ano] = dataNascimento.split('/');
+    const formataAniversario = new Date(ano, parseInt(mes) - 1, dia);
+
     const codigoEndereco = requisicao.body.enderecoId;
     Corretor.update({
         nome: nome,
         cpf: cpf,
         cnpj: cnpj,
-        dataNascimento : dataNascimento,
+        dataNascimento : formataAniversario,
         enderecoId: codigoEndereco
     }, {
         where: {

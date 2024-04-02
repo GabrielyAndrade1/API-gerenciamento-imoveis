@@ -18,11 +18,15 @@ router.get('/visita/:visitaId', async (requisicao, resposta) => {
 //Rota para cadastro
 router.post('/visita', (requisicao, resposta) => {
     const dataVisita = requisicao.body.dataVisita;
+
+    const [dia, mes, ano] = dataVisita.split('/');
+    const formataVisita = new Date(ano, parseInt(mes) - 1, dia);
+
     const visitaRealizada = requisicao.body.visitaRealizada;
     const codigoCliente = requisicao.body.clienteId;
     const codigoImovel = requisicao.body.imovelId;
     Visita.create({
-        dataVisita: dataVisita,
+        dataVisita: formataVisita,
         visitaRealizada : visitaRealizada,
         ClienteId: codigoCliente,
         ImovelId: codigoImovel
@@ -37,11 +41,14 @@ router.post('/visita', (requisicao, resposta) => {
 router.put('/visita/:visitaId', (requisicao, resposta) => {
     const codigoVisita = requisicao.params.visitaId;
     const dataVisita = requisicao.body.dataVisita;
+
+    const [dia, mes, ano] = dataVisita.split('/');
+    const formataVisita = new Date(ano, parseInt(mes) - 1, dia);
     const visitaRealizada = requisicao.body.visitaRealizada;
     const codigoCliente = requisicao.body.ClienteId;
     const codigoImovel = requisicao.body.ImovelId;
     Imovel.update({
-        dataVisita: dataVisita,
+        dataVisita: formataVisita,
         visitaRealizada: visitaRealizada,
         ClienteId: codigoCliente,
         ImovelId: codigoImovel

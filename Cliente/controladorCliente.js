@@ -20,12 +20,16 @@ router.post('/cliente', (requisicao, resposta) => {
     const cpf = requisicao.body.cpf;
     const cnpj = requisicao.body.cnpj;
     const dataNascimento = requisicao.body.dataNascimento;
+    
+    const [dia, mes, ano] = dataNascimento.split('/');
+    const formataAniversario = new Date(ano, parseInt(mes) - 1, dia);
+
     const codigoEndereco = requisicao.body.enderecoId;
     Cliente.create({
         nome: nome,
         cpf: cpf,
         cnpj: cnpj,
-        dataNascimento : dataNascimento,
+        dataNascimento : formataAniversario,
         enderecoId: codigoEndereco
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
@@ -40,12 +44,16 @@ router.put('/cliente/:clienteId', (requisicao, resposta) => {
     const cpf = requisicao.body.cpf;
     const cnpj = requisicao.body.cnpj;
     const dataNascimento = requisicao.body.dataNascimento;
+
+    const [dia, mes, ano] = dataNascimento.split('/');
+    const formataAniversario = new Date(ano, parseInt(mes) - 1, dia);
+
     const codigoEndereco = requisicao.body.enderecoId;
     Cliente.update({
         nome: nome,
         cpf: cpf,
         cnpj: cnpj,
-        dataNascimento : dataNascimento,
+        dataNascimento : formataAniversario,
         enderecoId: codigoEndereco
     }, {
         where: {

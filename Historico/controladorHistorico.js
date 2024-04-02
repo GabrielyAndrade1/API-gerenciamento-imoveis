@@ -18,12 +18,16 @@ router.get('/historico/:historicoId', async (requisicao, resposta) => {
 //Rota para cadastro
 router.post('/historico', (requisicao, resposta) => {
     const dataNegociacao = requisicao.body.dataNegociacao;
+
+    const [dia, mes, ano] = dataNegociacao.split('/');
+    const formataNegociacao = new Date(ano, parseInt(mes) - 1, dia);
+
     const percentualComissao = requisicao.body.percentualComissao;
     const codigoImovel = requisicao.body.ImovelId;
     const codigoCliente = requisicao.body.ClienteId;
     const codigoCorretor = requisicao.body.CorretorId;
     Historico.create({
-        dataNegociacao: dataNegociacao,
+        dataNegociacao: formataNegociacao,
         percentualComissao: percentualComissao,
         ImovelId: codigoImovel,
         ClienteId : codigoCliente,
@@ -39,12 +43,16 @@ router.post('/historico', (requisicao, resposta) => {
 router.put('/historico/:historicoId', (requisicao, resposta) => {
     const codigoHistorico = requisicao.params.historicoId;
     const dataNegociacao = requisicao.body.dataNegociacao;
+
+    const [dia, mes, ano] = dataNegociacao.split('/');
+    const formataNegociacao = new Date(ano, parseInt(mes) - 1, dia);
+
     const percentualComissao = requisicao.body.percentualComissao;
     const codigoImovel = requisicao.body.ImovelId;
     const codigoCliente = requisicao.body.ClienteId;
     const codigoCorretor = requisicao.body.CorretorId;
     Historico.update({
-        dataNegociacao: dataNegociacao,
+        dataNegociacao: formataNegociacao,
         percentualComissao: percentualComissao,
         ImovelId: codigoImovel,
         ClienteId : codigoCliente,

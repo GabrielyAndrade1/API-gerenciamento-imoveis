@@ -19,6 +19,10 @@ const Proprietario = conexao.define('proprietario', {
     cnpj: {
         type: Sequelize.CHAR(14),
         allowNull: false
+    },    
+    dataNascimento:{
+        type: Sequelize.DATE,
+        allowNull: false
     },
     enderecoId: {
         type: Sequelize.INTEGER,
@@ -34,7 +38,7 @@ const Proprietario = conexao.define('proprietario', {
 });
 
 Proprietario.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Proprietario;

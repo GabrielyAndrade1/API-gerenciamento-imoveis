@@ -26,7 +26,7 @@ const Fotos = conexao.define('fotos', {
 });
 
 Fotos.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Fotos;

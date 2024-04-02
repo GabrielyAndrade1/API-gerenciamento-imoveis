@@ -20,6 +20,10 @@ const Corretor = conexao.define('corretor', {
         type: Sequelize.CHAR(14),
         allowNull: false
     },
+    dataNascimento:{
+        type: Sequelize.DATE,
+        allowNull: false
+    },
     enderecoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -34,7 +38,7 @@ const Corretor = conexao.define('corretor', {
 });
 
 Corretor.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Corretor;

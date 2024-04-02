@@ -21,12 +21,14 @@ router.post('/endereco', (requisicao, resposta) => {
     const cidade = requisicao.body.cidade;
     const bairro = requisicao.body.bairro;
     const rua = requisicao.body.rua;
+    const complemento = requisicao.body.complemento;
     const cep = requisicao.body.cep;
     Endereco.create({
         estado: estado,
         cidade: cidade,
         bairro: bairro,
         rua : rua,
+        complemento : complemento,
         cep: cep
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
@@ -42,12 +44,14 @@ router.put('/endereco/:enderecoId', (requisicao, resposta) => {
     const cidade = requisicao.body.cidade;
     const bairro = requisicao.body.bairro;
     const rua = requisicao.body.rua;
+    const complemento = requisicao.body.complemento;
     const cep = requisicao.body.cep;
     Endereco.update({
         estado: estado,
         cidade: cidade,
         bairro: bairro,
         rua : rua,
+        complemento : complemento,
         cep: cep
     }, {
         where: {

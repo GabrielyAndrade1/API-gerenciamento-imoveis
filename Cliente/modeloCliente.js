@@ -21,6 +21,10 @@ const Cliente = conexao.define('cliente', {
         type: Sequelize.CHAR(14),
         allowNull: false
     },
+    dataNascimento:{
+        type: Sequelize.DATE,
+        allowNull: false
+    },
     enderecoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -35,7 +39,7 @@ const Cliente = conexao.define('cliente', {
 });
 
 Cliente.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Cliente;

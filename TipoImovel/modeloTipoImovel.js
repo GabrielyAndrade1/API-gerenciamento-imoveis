@@ -16,7 +16,7 @@ const TipoImovel = conexao.define('tipoImovel', {
 });
 
 TipoImovel.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = TipoImovel;

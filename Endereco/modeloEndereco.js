@@ -27,17 +27,17 @@ const Endereco = conexao.define('endereco', {
         type: Sequelize.STRING(50),
         allowNull: false
     },
-    CEP: {
-        type: Sequelize.CHAR(8),
-        allowNull: false,
-        unique:true
+    cep: {
+        type: Sequelize.STRING(8),
+        allowNull: false
+        //unique:true
     },
 }, {
     timestamps: false
 });
 
 Endereco.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Endereco;

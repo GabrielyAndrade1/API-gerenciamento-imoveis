@@ -40,7 +40,7 @@ const Imovel = conexao.define('imovel', {
 });
 
 Imovel.sync({
-    alter: true
+    //alter: true
 });
 
 module.exports = Imovel;
