@@ -18,10 +18,10 @@ router.get('/fotos/:fotosId', async (requisicao, resposta) => {
 //Rota para cadastro
 router.post('/fotos', (requisicao, resposta) => {
     const chaveAws = requisicao.body.chaveAws;
-    const codigoImovel = requisicao.body.ImovelId;
-    Historico.create({
+    const codigoImovel = requisicao.body.imovelId;
+    Fotos.create({
         chaveAws: chaveAws,
-        ImovelId: codigoImovel
+        imovelId: codigoImovel
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
     }).catch((erro) => {
@@ -33,10 +33,10 @@ router.post('/fotos', (requisicao, resposta) => {
 router.put('/fotos/:fotosId', (requisicao, resposta) => {
     const codigoFotos = requisicao.params.fotosId;
     const chaveAws = requisicao.body.chaveAws;
-    const codigoImovel = requisicao.body.ImovelId;
-    Historico.update({
+    const codigoImovel = requisicao.body.imovelId;
+    Fotos.update({
         chaveAws: chaveAws,
-        ImovelId: codigoImovel
+        imovelId: codigoImovel
     }, {
         where: {
             codigo: codigoFotos

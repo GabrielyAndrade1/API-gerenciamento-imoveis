@@ -17,7 +17,7 @@ const Visita = conexao.define('visita', {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
-    ClienteId: {
+    clienteId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -26,7 +26,7 @@ const Visita = conexao.define('visita', {
         },
         onDelete: 'CASCADE'
     },
-    ImovelId: {
+    imovelId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

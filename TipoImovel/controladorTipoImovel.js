@@ -18,7 +18,7 @@ router.get('/tipoImovel/:tipoImovelId', async (requisicao, resposta) => {
 //Rota para cadastro
 router.post('/tipoImovel', (requisicao, resposta) => {
     const descricao = requisicao.body.descricao;
-    Historico.create({
+    TipoImovel.create({
         descricao: descricao
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');

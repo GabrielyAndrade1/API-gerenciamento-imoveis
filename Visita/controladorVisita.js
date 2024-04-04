@@ -28,8 +28,8 @@ router.post('/visita', (requisicao, resposta) => {
     Visita.create({
         dataVisita: formataVisita,
         visitaRealizada : visitaRealizada,
-        ClienteId: codigoCliente,
-        ImovelId: codigoImovel
+        clienteId: codigoCliente,
+        imovelId: codigoImovel
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
     }).catch((erro) => {
@@ -45,13 +45,13 @@ router.put('/visita/:visitaId', (requisicao, resposta) => {
     const [dia, mes, ano] = dataVisita.split('/');
     const formataVisita = new Date(ano, parseInt(mes) - 1, dia);
     const visitaRealizada = requisicao.body.visitaRealizada;
-    const codigoCliente = requisicao.body.ClienteId;
-    const codigoImovel = requisicao.body.ImovelId;
+    const codigoCliente = requisicao.body.clienteId;
+    const codigoImovel = requisicao.body.imovelId;
     Imovel.update({
         dataVisita: formataVisita,
         visitaRealizada: visitaRealizada,
-        ClienteId: codigoCliente,
-        ImovelId: codigoImovel
+        clienteId: codigoCliente,
+        imovelId: codigoImovel
     }, {
         where: {
             codigo: codigoVisita

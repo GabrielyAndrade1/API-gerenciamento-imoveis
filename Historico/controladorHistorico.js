@@ -23,15 +23,15 @@ router.post('/historico', (requisicao, resposta) => {
     const formataNegociacao = new Date(ano, parseInt(mes) - 1, dia);
 
     const percentualComissao = requisicao.body.percentualComissao;
-    const codigoImovel = requisicao.body.ImovelId;
-    const codigoCliente = requisicao.body.ClienteId;
-    const codigoCorretor = requisicao.body.CorretorId;
+    const codigoImovel = requisicao.body.imovelId;
+    const codigoCliente = requisicao.body.clienteId;
+    const codigoCorretor = requisicao.body.corretorId;
     Historico.create({
         dataNegociacao: formataNegociacao,
         percentualComissao: percentualComissao,
-        ImovelId: codigoImovel,
-        ClienteId : codigoCliente,
-        CorretorId : codigoCorretor
+        imovelId: codigoImovel,
+        clienteId : codigoCliente,
+        corretorId : codigoCorretor
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
     }).catch((erro) => {
@@ -48,15 +48,15 @@ router.put('/historico/:historicoId', (requisicao, resposta) => {
     const formataNegociacao = new Date(ano, parseInt(mes) - 1, dia);
 
     const percentualComissao = requisicao.body.percentualComissao;
-    const codigoImovel = requisicao.body.ImovelId;
-    const codigoCliente = requisicao.body.ClienteId;
-    const codigoCorretor = requisicao.body.CorretorId;
+    const codigoImovel = requisicao.body.imovelId;
+    const codigoCliente = requisicao.body.clienteId;
+    const codigoCorretor = requisicao.body.corretorId;
     Historico.update({
         dataNegociacao: formataNegociacao,
         percentualComissao: percentualComissao,
-        ImovelId: codigoImovel,
-        ClienteId : codigoCliente,
-        CorretorId : codigoCorretor
+        imovelId: codigoImovel,
+        clienteId : codigoCliente,
+        corretorId : codigoCorretor
     }, {
         where: {
             codigo: codigoHistorico

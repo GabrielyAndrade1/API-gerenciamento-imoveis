@@ -24,8 +24,8 @@ router.post('/imovel', (requisicao, resposta) => {
     Imovel.create({
         descricao: descricao,
         areaMetros: areaMetros,
-        TipoImovelId: codigoTipoImovel,
-        EnderecoId: codigoEndereco
+        tipoImovelId: codigoTipoImovel,
+        enderecoId: codigoEndereco
     }).then(() => {
         resposta.send('Cadastrado com sucesso.');
     }).catch((erro) => {
@@ -39,10 +39,12 @@ router.put('/imovel/:imovelId', (requisicao, resposta) => {
     const descricao = requisicao.body.descricao;
     const areaMetros = requisicao.body.areaMetros;
     const codigoTipoImovel = requisicao.body.tipoImovelId;
-    Imovel.update({
+    const codigoEndereco = requisicao.body.enderecoId;
+    Imovel.create({
         descricao: descricao,
         areaMetros: areaMetros,
-        tipoImovelId: codigoTipoImovel
+        tipoImovelId: codigoTipoImovel,
+        enderecoId: codigoEndereco
     }, {
         where: {
             codigo: codigoImovel

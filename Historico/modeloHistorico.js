@@ -18,7 +18,7 @@ const Historico = conexao.define('historico', {
         type: Sequelize.FLOAT,
         allowNull: false
     },
-    ClienteId: {
+    clienteId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -27,7 +27,7 @@ const Historico = conexao.define('historico', {
         },
         onDelete: 'CASCADE'
     },
-    ImovelId: {
+    imovelId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -36,7 +36,7 @@ const Historico = conexao.define('historico', {
         },
         onDelete: 'CASCADE'
     },
-    CorretorId: {
+    corretorId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {

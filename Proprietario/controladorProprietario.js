@@ -4,8 +4,8 @@ const Proprietario = require('./modeloProprietario');
 const router = express.Router();
 
 //Rota para pesquisar todos os registros
-router.get('/prorpietario', async (requisicao, resposta) => {
-    const proprietario = await Cliente.findAll(  );
+router.get('/proprietario', async (requisicao, resposta) => {
+    const proprietario = await Proprietario.findAll(  );
     resposta.send(proprietario);
 });
 
